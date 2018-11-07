@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word-Guess-Game</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+       
+       //Declare an array of words for word guess
+       const listOfWords = ["Nuer", "Ozil", "Mueller", "Kroos", "Boateng"];
+      
+       //Choose word randomly
+      var random = Math.floor(Math.random()*listOfWords.length);
+      var randomWord = [random];
+      var underscoreArr = [];
+      
+      for(var i = 0; i<randomWord.length; i++){
+        console.log(randomWord[i]);
+      }
+      
+      //Create underscores based on length of words  
+      var generateUnderscores = function(){
+          for(var i = 0; i<randomWord.length; i++){
+              underscoreArr.push("_");
+          }
+          return underscoreArr;
+      }  
+      console.log(generateUnderscores());               
+       //Get user guess
+       //if guess is right then push to an arrAy
+       //declare variables user guess, computer guess, wins, loses, guess left .
+      // onkey up function for user guess
+      // computer generates random guess word.                                
+                                           
+
+                     
+        
+    </script>
+</body>
+</html>
