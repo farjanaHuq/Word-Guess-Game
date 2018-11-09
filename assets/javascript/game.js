@@ -90,12 +90,16 @@ document.onkeyup = function (event) {
         underscoreArrElem.textContent = underscoreArr.join("");
 
         // if statement to count and alert win.
-        if (underscoreArr.join("") == randomWord) {
+        if ((underscoreArr.join("") == randomWord)) {
+           
             wins++;
             alert("You win!!!");
+            // after win calls the reset function.
+            resetGame();
+          
         }
-        // after win calls the reset function.
-        resetGame();
+        
+       
     }
     else {
         // all the wrong guesses are pushed to theWrongArr.
@@ -104,10 +108,11 @@ document.onkeyup = function (event) {
         if ((theWrongArr.join("") != randomWord) && numOfGuesses == 1) {
             loses++;
             alert("You loose!!!");
-
+             // after loss calls the reset function.
+            resetGame();
         }
-        // after loss calls the reset function.
-        resetGame();
+       
+        
     }
     guessCounter.textContent = numOfGuesses;
     winsCounter.textContent = wins;
