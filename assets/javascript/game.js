@@ -2,14 +2,14 @@
 //=================================================================================
 
 //Declare an array of words for word guess
-const listOfWords = ["nuer", "oezil", "mueller", "kroos", "boateng"];
-
+const listOfWords = ["nuer", "oezil", "mueller", "kroos", "boateng", "hummels"];
 
 var userGuessElem = document.getElementById("user-guess");
 var guessCounter = document.getElementById("guess-counter");
 var winsCounter = document.getElementById("wins");
 var lossCounter = document.getElementById("loses");
 var underscoreArrElem = document.getElementById("underscore");
+
 
 var underscoreArr = [];
 var userGuessElemArr = [];
@@ -24,7 +24,7 @@ var random = Math.floor(Math.random() * listOfWords.length);
 var randomWord = listOfWords[random];
 console.log(randomWord);
 
-//Main
+//Helper Functions
 //=====================================================================
 
 //function to create underscores based on length of words  
@@ -50,20 +50,29 @@ var resetGame = function () {
     console.log(random);
     randomWord = listOfWords[random];
     console.log(randomWord);
-
+    generateUnderscores();
+    updateHangmanImage(randomWord);
+    updateHangmanImage
     numOfGuesses = 13;
+
     guessCounter.textContent = null;
     userGuessElem.textContent = null;
     underscoreArrElem.textContent = null;
-
+    
+    
     underscoreArr = [];
     userGuessElemArr = [];
     theWrongArr = [];
-
 }
+//updates image corresponding to each word
+function updateHangmanImage(randomWord) {
+    document.getElementById("image").src = "assets/images/" + randomWord + ".jpg";
+};
+
+//Main 
+//=====================================================================
 
 //Get user guess
-
 // onkey up function for user guess
 document.onkeyup = function (event) {
     var userGuess = event.key;
@@ -92,8 +101,10 @@ document.onkeyup = function (event) {
         // if statement to count and alert win.
         if ((underscoreArr.join("") == randomWord)) {
            
-            wins++;
+            wins++; 
             alert("You win!!!");
+            //calls this function to update display image
+            updateHangmanImage(randomWord);
             // after win calls the reset function.
             resetGame();
           
