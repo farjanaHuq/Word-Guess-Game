@@ -51,15 +51,12 @@ var resetGame = function () {
     randomWord = listOfWords[random];
     console.log(randomWord);
     generateUnderscores();
-    updateHangmanImage(randomWord);
-    updateHangmanImage
     numOfGuesses = 13;
 
     guessCounter.textContent = null;
     userGuessElem.textContent = null;
     underscoreArrElem.textContent = null;
-    
-    
+       
     underscoreArr = [];
     userGuessElemArr = [];
     theWrongArr = [];
@@ -79,7 +76,9 @@ document.onkeyup = function (event) {
 
     // number of user guesses left.
     numOfGuesses--;
-
+    guessCounter.textContent = numOfGuesses;
+    console.log(guessCounter);
+   // console.log("Num of guesses : " + numOfGuesses);
     // Array to hold all the user guesses
     var index = 13 - numOfGuesses;
     userGuessElemArr[index] = userGuess;
@@ -117,15 +116,16 @@ document.onkeyup = function (event) {
         theWrongArr.push(userGuess);
         //  // if statement to count and alert loose.           
         if ((theWrongArr.join("") != randomWord) && numOfGuesses == 1) {
+            console.log("Num of guesses" + numOfGuesses);
             loses++;
             alert("You loose!!!");
              // after loss calls the reset function.
             resetGame();
         }
        
-        
+  
     }
-    guessCounter.textContent = numOfGuesses;
+    
     winsCounter.textContent = wins;
     lossCounter.textContent = loses;
 }
